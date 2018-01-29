@@ -1,0 +1,163 @@
+<?php
+  
+  // My Cookie Stuff
+	$cookie_name = "request";
+  
+  if(!isset($_COOKIE[$cookie_name])) {
+		setcookie($cookie_name, '1', time() + (86400 * 365), "/"); 
+	} 
+	else {
+	  $count = $_COOKIE[$cookie_name];
+	  $count = $count + 1;
+			
+		setcookie($cookie_name, $count , time() + (86400 * 365), "/"); 
+  }
+  
+  // Native php sessions
+  session_start();
+  
+  $visit_data['IP'] = $_SERVER['REMOTE_ADDR'];
+  $visit_data['TIMESTAMP'] = $_SERVER['REQUEST_TIME'];
+	$visit_data['PORT'] = $_SERVER['REMOTE_PORT'];
+  $visit_data['BROWSER'] = $_SERVER['HTTP_USER_AGENT'];
+
+  if ( !isset($_SESSION['visit_history']) ) {
+    $_SESSION['visit_history'] = array();
+  }
+  
+  array_push( $_SESSION['visit_history'] , $visit_data);
+  
+  /*
+  $_SESSION['visit_history'][0]
+  $_SESSION['visit_history'][1]
+  */
+  
+ // var_dump($_SESSION['visit_history']);
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ray Meltser - CSCI 488</title>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name = "keywords" content = "CSCI 488, Senior Seminar">
+  <meta name = "author" content = "Ray Meltser">
+  <meta name = "description" content = "CSCI 488">
+	 <link rel = "icon" type = "image/png" href = "images/favicon.png">
+
+
+  <!-- BOOTSTRAP!! HOW I MISS YOU~! D:-->
+
+  
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  
+    <!-- 
+    The normalizer style sheet has to be included BEFORE your styles.css.  Do not edit the normalizer.
+    See Here:  https://necolas.github.io/normalize.css/
+    -->
+  
+  
+</head>
+<body>
+  <div id="page_wrapper">
+    <header>
+      <h3>Ray Meltser - CSCI 488</h3>
+        <h4>Senior Seminar in Computer Science</h4>
+			<p>Welcome! You have visited this page <?= $count ?> times.</p>
+    </header>    
+    <div id="content">
+      <!--<?php
+      if(!isset($_COOKIE[$cookie_name])) {
+      echo "<script type='text/javascript'>alert('Welcome new visitor!');</script>";
+      
+      // or just write some text
+      // echo 'Welcome new visitor!';
+      } 
+      else {
+        echo "<script type='text/javascript'>alert('Welcome back #'+'$count');</script>";}
+      ?>-->
+		
+      <br>
+			<div class = "center">
+				<ul class="navbar">
+					<li><a href="lesson2hw.html">Lesson 2 Assignment</a></li>
+					<li><a href="cssexperiments.html">CSS Experiments</a></li>
+					 <li><a href="nativeJS.html">Native JS</a></li>
+					 <li><a href="json1.html">JSON HW# 1</a></li>
+				 <li><a href="hw_jquery_nav/jquery_nav.html">jQuery HW#1</a></li>
+					 <li><a href="htmlform_noValid.html">HTML Form</a></li>
+					<li><a href="jquery2.html">JQUERY 2</a></li>
+					<li><a href="ajax.php">AJAX</a></li>
+					<li><a href="html_form_server.php">Form to Server</a></li>
+					<li><a href = "http://csci.lakeforest.edu/~meltserrd/csci488/form_listing.php">Form Listing</a></li>
+				</ul>
+			</div>
+			<br>
+			
+			<!--<a href = "https://www.lakeforest.edu"><img src = "images/lfclogo.png" alt = "LFC Logo" width = "167" height="170"></a>-->
+			
+       <div class = "right_col" >   
+<!--				 <select>
+				<option>Page Visit History</option>
+				<? foreach($_SESSION['visit_history'] as $visit){ ?>
+				<option><?= $visit['IP'] . ' -- ' . date("Y-m-d H:i:s", $visit['TIMESTAMP']) ?></option>
+				<? } ?>
+			</select>-->
+            <p>This is a class on <b>Database Driven Web Applications</b> and Software engineering principles.</p>
+            <p>Homework will be posted to this page</p>
+            <p><a href = "https://www.lakeforest.edu/academics/programs/math/"> Math/CSCI Department Page</a></p>
+				 <br><br>
+        </div>
+        
+        <div class = "left_col">
+            <table>
+              <tr>
+              	<th>Courses Completed</th>
+                <th>Course Number</th>
+              </tr>
+              <tr>
+                <td>Introduction to Web Programming</td>
+                <td>CSCI 107</td>
+              </tr>
+              <tr>
+                <td>Computer Science II</td>
+                <td>CSCI 212</td>
+							</tr>
+              <tr>
+               <td>Intro to Computer Architecture</td>
+               <td>CSCI 213</td>
+              </tr>
+              <tr>
+                <td>Data Structures and Algorithms</td>
+                <td>CSCI 317</td>
+              </tr>
+              <tr>
+              	<td>Programming Languages</td>
+                <td>CSCI 318</td>
+              </tr>
+              <tr>
+               <td>Cryptography</td>
+               <td>CSCI 323</td>
+              </tr>
+              <tr>
+               <td>Introduction to Database Systems</td>
+               <td>CSCI 427</td>
+              </tr>
+            </table>
+        </div>
+				
+        <p></p>
+			
+			<br><br><br>
+		
+    </div>
+    <footer>
+			<a href = "https://www.lakeforest.edu"><img src = "images/lfclogo.png" alt = "LFC Logo" width = "50" height="50"></a>
+			<br>
+        &copy Ray Meltser 2017						
+    </footer>    
+  </div>
+</body>
+</html>

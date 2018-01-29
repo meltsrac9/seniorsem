@@ -1,0 +1,150 @@
+/* #5ccfd1 teal
+   #d1d1d1 grey
+   #b39586 brown
+    ##4f413b off black */
+body {
+		font-family: Verdana;  
+}
+
+/****************************************************************************
+Styles for the Structural Blocks
+****************************************************************************/
+
+#page_wrapper {
+  width: 1000px;
+  margin: auto;
+	
+}
+
+header {
+	padding-top: 5px;
+	padding-bottom:	5px;
+  height: 150px;
+  text-align: center;
+  background-color: #5ccfd1;
+  margin: 5px;
+  color: white;
+}
+
+#content {
+  min-height:700px;
+  background-color: #eeeeee;
+  margin: 5px;
+  color: #4f413b;
+}
+
+footer {
+  min-height:100px;
+  text-align: center;
+  background-color: #5ccfd1;
+  margin: 5px;	 
+  color: white;
+}
+
+div.left_col{	
+	padding-top: 5px;
+	color: white;
+	background-color: #5ccfd1;
+	text-align: center;
+  float: left;	
+	width: 48%;
+	margin-left: 10px;
+	margin-top: 10px;
+	min-height: 300px;
+}
+
+div.right_col{
+	padding-top: 5px;
+	color: white;
+	background-color: #5ccfd1;
+	text-align: center;
+  float: right;	
+	width: 48%;
+	margin-right: 10px;
+	margin-top: 10px;
+	min-height: 300px;
+}
+
+/****************************************************************************
+Styles for the Little Details
+****************************************************************************/
+a{
+	color: white;
+}
+
+a:hover{
+	color: #b39586;
+}
+
+
+/****************************************************************************
+Styles for the Nav Bar
+****************************************************************************/
+
+/*I had a hard time centering the nav, and I feel like the way I did it
+worked, but is done inelegantly; Hopefully I'll remember to bring it
+up in class;'*/
+ul.navbar {
+  list-style-type: none;	
+	margin: auto;
+	width: 100%;
+	text-align: center;
+}
+
+ul.navbar li {
+	display: inline;
+  float:left;
+	text-align: center;
+  margin: 0px 0px 0px 2px;  /*T R B L*/
+}
+
+ul.navbar a {
+  display: inline-block;
+  text-decoration:none;
+  background-color:#b39586;
+  padding: 2px;
+}
+
+ul.navbar a:hover {
+  background-color:#5ccfd1;
+}
+
+/****************************************************************************
+CSS Experiments
+****************************************************************************/
+
+div.fixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 500px;
+	height: 100px;
+	background-color: green;
+	
+}
+
+div.absolute {
+	position: absolute;
+	height: 100px;
+	width: 740px;
+	background-color: red;
+	
+}
+
+div.absolute2 {
+	position: absolute;
+	height: 50px;
+	width: 700px;
+	background-color: blue;
+}
+
+@media only screen and (min-width: 100px) {
+	div.desktop{
+		background-color: blue;
+	}
+	
+@media only screen and (min-width: 700px){
+	div.tablet{
+		background-color: pink;
+	}
+}

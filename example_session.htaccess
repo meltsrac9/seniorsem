@@ -1,0 +1,6 @@
+# This file has to be named EXACTLY .htaccess 
+# You may have to tell your local OS and/or FTP client to show hidden files
+# in order for a file beginning with . to show in directory listings.
+
+# Value is Seconds
+php_value session.gc_maxlifetime 2592000

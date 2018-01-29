@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Form</title>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src = "html_validation.js"></script>
+</head>
+<body>
+<!--
++Two type="text" input fields (single line text entry). One of them needs to ask for an email address.
++A type="number" input field.
++A type="range" input field.
++Textarea (a multi-line text field)
++At least 3 checkboxes.
++Two different unique selection groups of at least 2 radio buttons each. By a unique selection group, I mean a group of radio buttons where only one of them can be selected.
++A select dropdown menu where only one item can be selected.
++A select dropdown menu that allows multiple selections.
++A hidden form element.
+Both a reset and a submit button.-->
+	
+	
+	<form name="form" action="echo.php" method="GET" onsubmit = "html_validation.js">
+			Enter Email address: 
+			<br>
+			<input type="text" name="email" value="">    
+			<br><br>
+
+			Enter Name:
+			<br>
+			<input type = "text" name = "name" value = "">
+			<br><br>
+
+
+			<input type="checkbox" name="like" value="no">This is a checkbox
+			<br>
+			<input type = "checkbox" name="check2" value = "no">This, too, is a checkbox
+			<br>
+			<input type = "checkbox" name = "check3" value = "no"> This is also a checkbox
+
+			<br><br>
+			Pick a number<input type = "number" name = "number" value = "0">
+			<br><br>
+			Slide the slider<input type = "range" min = "1" max = "100" name = "range" value = "50">
+			<br><br>
+		<textarea rows = "4" cols = "50" name = "paragraph" value ="">Write me a paragraph</textarea>
+		<br><br>
+		<input type="checkbox" name="check1" value="check"> I am a checkbox
+		<br><br>
+		<input type="checkbox" name="check2" value="checky"> No, you're a checkbox
+		<br><br>
+		<input type="checkbox" name="check3" value="cheeky"> Look guys, we can al be checkboxes
+		<br><br>
+
+
+		Pick a number<br>
+		<input type="radio" name="number" value="one" checked> One<br>
+		<input type="radio" name="number" value="two"> Two<br>
+		<input type="radio" name="number" value="three"> Three
+		<br><br>
+		Pick a letter <br>
+			<input type="radio" name="letter" value="one" checked> A<br>
+		<input type="radio" name="letter" value="two"> B<br>
+		<input type="radio" name="letter" value="three"> C
+		<br><br>
+		Pick ONE
+		<select name = "selector">
+		<option value="cat">cat</option>
+		<option value="dog">dog</option>
+		<option value="rat">rat</option>
+		<option value="bat">bat</option>
+	</select>
+		<br><br>
+		Pick MANY using ctr/cmd
+		<select multiple name = "many select">
+		<option value="cat">cat</option>
+		<option value="dog">dog</option>
+		<option value="rat">rat</option>
+		<option value="bat">bat</option>
+	</select>
+		<br><br>
+		<input type="hidden" name="myName" value="Ray">
+
+
+			<br><br>
+
+			<input type="submit" value=" Submit ">
+		 <button type="reset" value="Reset">Reset</button>
+	</form>
+
+	</body>
+</html>

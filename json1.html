@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON HW 1</title>
+  
+  <script type="text/javascript">
+		
+		//menu.selectedIndex - js tells which thing was selected
+  	var mySelect =null;
+		
+		function nextSelect (){
+			var str = '[{"animal_id":1,"animal_type":"dog","animal_breeds":[{"breed_id":1,"breed_name":"Beagle"},{"breed_id":2,"breed_name":"Poodle"},{"breed_id":3,"breed_name":"Hound"},{"breed_id":4,"breed_name":"Collie"}]},{"animal_id":2,"animal_type":"cat","animal_breeds":[{"breed_id":1,"breed_name":"Tabby"},{"breed_id":2,"breed_name":"Calico"},{"breed_id":3,"breed_name":"Persian"}]},{"animal_id":3,"animal_type":"bat","animal_breeds":[{"breed_id":1,"breed_name":"Hoary"},{"breed_id":2,"breed_name":"Egyptian Fruit"},{"breed_id":3,"breed_name":"Spotted"},{"breed_id":4,"breed_name":"Leaf-nosed"}]},{"animal_id":4,"animal_type":"rat","animal_breeds":[{"breed_id":1,"breed_name":"Sewer"},{"breed_id":2,"breed_name":"Bilge"},{"breed_id":3,"breed_name":"Dirty"}]}]';
+
+			var obj = JSON.parse(str);
+			console.log( obj );
+
+		
+			var myDiv = document.getElementById("myDiv");
+			var animal = document.getElementById("selector");			
+			mySelect = document.createElement("select");
+			
+			myDiv.innerHTML = '';
+			if(animal.value == "Choose Animal"){
+				return;
+			}
+			
+			for(var i = 0; i < obj.length; i++){
+				if(obj[i].animal_type === animal.value){
+					var option = null;
+					for(var j = 0; j < obj[i].animal_breeds.length; j++){//this isn't adding; it's replacing
+						
+					var option = document.createElement("option");
+						option.text = obj[i].animal_breeds[j].breed_name;
+						mySelect.add(option);
+					}				
+			}
+			myDiv.appendChild(mySelect);			
+		}
+	}
+    
+
+ 
+  </script>
+</head>
+<body> 
+	<select id = "selector" onchange = nextSelect()>
+  	<option value="Choose Animal">Choose Animal</option>
+  	<option value="dog">Dog</option>
+  	<option value="cat">Cat</option>
+		<option value="bat">Bat</option>
+		<option value="rat">Rat</option>
+	</select>
+	
+	<div id = "myDiv"></div>
+</body>
+</html>

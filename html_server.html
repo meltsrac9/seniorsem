@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Form</title>
+</head>
+<body>
+<!--
++Two type="text" input fields (single line text entry). One of them needs to ask for an email address.
++A type="number" input field.
++A type="range" input field.
++Textarea (a multi-line text field)
++At least 3 checkboxes.
++Two different unique selection groups of at least 2 radio buttons each. By a unique selection group, I mean a group of radio buttons where only one of them can be selected.
++A select dropdown menu where only one item can be selected.
++A select dropdown menu that allows multiple selections.
++A hidden form element.
+Both a reset and a submit button.-->
+<form name="meltser_form" action="echo.php" method="GET">
+	Enter Email address: 
+	<br>
+	<input type="text" name="email" value="">    
+	<br><br>
+
+	Enter Name:
+	<br>
+	<input type = "text" name = "name" value = "">
+	<br><br>
+	
+	Select a Pizza Topping<br>
+	<input type="checkbox" name="toppings[]" value="pepperoni">Pepperoni
+	<br>
+	<input type = "checkbox" name="toppings[]" value = "sausage">Sausage
+	<br>
+	<input type = "checkbox" name = "toppings[]" value = "extra_cheese">Extra Cheese
+
+	<br><br>
+	How Many Pizzas will it be?<input type = "number" name = "number" value = "0">
+	<br><br>
+	
+	How thick should the crust be?<input type = "range" min = "1" max = "10" name = "crust" value = "5">
+	<br><br>
+	<textarea rows = "4" cols = "50" name = "paragraph" value ="">Extra delivery instructions</textarea>
+	<br><br>	
+	
+	Pick a Sauce<br>
+	<input type="radio" name="sauce" value="marinara" checked> Marinara<br>
+  <input type="radio" name="sauce" value="pesto"> Pesto<br>
+  <input type="radio" name="sauce" value="bbq"> BBQ
+	<br><br>
+	
+	Pick a Size<br>
+	<select name = "size">
+  <option value="small">Small</option>
+  <option value="medium">Medium</option>
+  <option value="large">Large</option>
+  <option value="extra_large">Extra Large</option>
+</select>
+	
+	<br><br>
+	Select multiple extra toppings using ctr/cmd<br>
+	<select multiple name = "exra_toppings[]">
+  <option value="mushrooms">mushrooms</option>
+  <option value="pineapple">pineapple</option>
+  <option value="spinach">spinach</option>
+  <option value="olives">olives</option>
+</select>
+	
+	<br><br>   
+    <br><br>
+    
+    <input type="submit" value=" Submit ">
+	 <button type="reset" value="Reset">Reset</button>
+</form>
+
+</body>
+</html>

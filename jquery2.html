@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pure CSS (No JavaScript) Menu System</title>
+  
+  <style type="text/css">
+    
+   
+    /************************************************  
+    Styles for a pure CSS flyout menu system
+    *************************************************/
+    /* lists come with styling baggagage (like huge padding) so turning all that off */
+    ul.nav {
+      list-style-type: none;
+      padding:0px;
+      margin:0px;
+    }
+    
+    /* Uses child selector -- so the sublist items won't be floated too */
+    ul.nav > li {
+      float:left;
+      margin: 0px 0px 0px 2px;  /*T R B L*/ 
+      text-align:center;  /* Primary list items will center the text */
+      position:relative;  /* This is so the sublists will position correctly - will learn about positioning soon */
+    }
+    
+    /* This applies to all decendent links -- includes the sublists */
+    ul.nav a {
+      display:block;
+      text-decoration:none;
+      padding:2px 6px 2px 6px;
+      width:75px;  /* could remove this to have variable-width items like in the nav1 list */
+    }
+    
+    ul.nav a:link , ul.nav a:visited {
+      color:#000066;
+      background-color:#DDDDDD;
+    }
+    
+    ul.nav a:hover , ul.nav a:active {
+      color:#333399;
+      background-color:#DDDDFF;
+    }
+    
+    /* The 3 selectors below make the sublists work as menus */
+    
+    /* This styles the sublists */
+    ul.nav ul {
+      display:none;   /* will not show in page when page loads */
+      list-style-type: none;
+      padding:0px;
+      margin:0px;
+      position:absolute;  /* This stuff positions the sublist properly under it's top-level menu item */
+      left:0px;
+      top:100%;
+    }
+    
+    ul.nav ul li {
+      text-align:left;  /* Sub list items will left-align the text */
+    }
+    
+    /* This is the magic that shows the sublist only during the hover state of the top-level menu item  */
+    
+
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <script type="text/javascript">
+    
+    /*
+      The last selector in the CSS, the one with the with the hover state, needs to be turned off so the
+      CSS won't trigger the sublists to show. Then you can add your own JQuery mouseenter 
+      and mouseleave events to trigger some pure, sweet, fancy, flyout goodness.
+    */
+		$(document).ready(function()
+	{
+		$("ul.nav li").each(function()
+		{
+		
+			$(this).mouseenter(function()
+			{
+				$(this).children("ul").animate(
+				{
+					height: 'toggle',
+					left: '30px'
+				});
+				$(this).children("li a[href='#']").animate(
+				{
+					backgroundColor: 'red'
+				});
+
+			});
+		
+		}); 	
+	});
+		
+  </script>
+  
+</head>
+<body>
+
+<br /><br />
+<h4>How slick can you make me?</h4>
+
+<div id="css">
+  <ul class="nav">
+    <li><a href="#">link 1</a></li>
+    <li>
+      <a href="#">link 2</a>
+      <ul>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">link 3......</a>
+      <ul>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+        <li><a href="#">link 5</a></li>
+      </ul>
+    </li>
+    <li><a href="#">link 4</a></li>
+  </ul>
+</div>
+
+  
+</body>
+</html>

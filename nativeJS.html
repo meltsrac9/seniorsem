@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ray Meltser - CSCI 488</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name = "keywords" content = "CSCI 488, Senior Seminar">
+		<meta name = "author" content = "Ray Meltser">
+		<meta name = "description" content = "Native JS">
+		
+		<style type = "text/css">
+			div.block1 {
+				background-color: red;
+			}
+
+			div.block2 {
+				background-color: blue;
+			}
+
+			div.block3 {
+				background-color: green;
+				border: 3px solid black;
+			}
+			
+			div.moved {
+				background-color: blue;
+				position: absolute;
+				top: 250px;
+				left: 50px;
+			}
+
+			div.block4 {
+				background-color: yellow;
+			}
+		</style>
+		
+		<script type = "text/javascript">
+			function onLoad(){
+				alert("Hark! An HTML attribute event handler!")
+			}
+			
+			function changeText(){
+				var block = document.getElementById("block1");
+				block.innerHTML = "Look, new text!";
+			}
+			
+			function changeClass(){
+				var block = document.getElementById("block2");
+				block.className = "moved";
+			}
+			
+			function changeStyle(){
+				var block = document.getElementById("block3");
+				block.style.backgroundColor = "orange";
+			}
+			
+			function invisible(){
+				var block = document.getElementById("block4");
+				block.style.visibility = "hidden";			
+			}
+			
+			function visible(){
+				var block = document.getElementById("block4");
+				block.style.visibility = "visible";
+			}
+			window.onload = onLoad();
+		</script>
+	</head>
+	<body>
+
+
+
+		<div class = "block1" id = "block1" onclick = "changeText()">
+			Click me to see new text!
+		</div>
+		<br><br>
+
+		<div class = "block2" id = "block2" onclick = "changeClass()">
+			Click me to see my class change!
+		</div>
+		<br><br>
+		
+		<div class = "block3" id = "block3" onclick = "changeStyle()">
+			Click me to see ONE style property change!
+		</div>
+		<br><br>
+		
+		<div class = "block4" id = "block4" onmouseover = "invisible()" onmouseout = "visible()">
+			Hover over me to toggle my visibility!
+			
+			The difference between visibility and display is that when <b>visibility</b> is hidden, the object is still there, but not visible. However, if <b>display</b> is set to none, the object is not at all rendered.
+		</div>
+	</body>
+</html>
